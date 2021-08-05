@@ -33,7 +33,7 @@ This is where you place the actual description of what this command will do. Des
 
 Add your logic inside the <b>handle()</b> function
 
-`
+```
 	/**
      * Execute the console command.
      *
@@ -43,14 +43,14 @@ Add your logic inside the <b>handle()</b> function
     {
         // your logic to perform scheduled task
     }
-`
+```
 
 # Registering the Command
 Now that you have created the command, you will need to register it in the Kernel. Go to <b>app/Console/Kernel.php</b>
 
 Add your command class file, jusr like below code
 
-`
+```
 	/**
      * The Artisan commands provided by your application.
      *
@@ -59,11 +59,11 @@ Add your command class file, jusr like below code
     protected $commands = [
         Commands\testCronJobs::class,
     ];
-`
+```
 
 Add your command inside the <b>schedule</b> funtion, just like below
 
-`
+```
 	/**
      * Define the application's command schedule.
      *
@@ -74,7 +74,7 @@ Add your command inside the <b>schedule</b> funtion, just like below
     {
         $schedule->command('cronJobs:test')->everyFiveMinutes();
     }
-`
+```
 
 Now, if you run the `php artisan list command` in the terminal, you will see your command has been registered. You will be able to see the command name with the signature and description.
 
